@@ -1,7 +1,3 @@
-    Here’s a **clean, professional README.md** you can directly use for your project. No fluff—this is how real projects present themselves.
-
----
-
 # 📧 Email Spam Classifier (Machine Learning)
 
 A machine learning project that classifies emails as **spam or not spam** using a **Naive Bayes classifier** on a preprocessed dataset.
