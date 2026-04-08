@@ -19,16 +19,12 @@ def load_and_prepare_data(file_path: str) -> pd.DataFrame:
 
     df = pd.read_csv(file_path, encoding="latin-1")
 
-    # Support common column name variants and standardize to label/message
-    if {"v1", "v2"}.issubset(df.columns):
-        df = df[["v1", "v2"]].copy()
-    elif {"Category", "Message"}.issubset(df.columns):
-        df = df[["Category", "Message"]].copy()
-    else:
-        raise ValueError(
-            "Dataset must contain either columns (v1, v2) or (Category, Message)"
-        )
+    required_columns = {"v1", "v2"}
+    if not required_columns.issubset(df.columns):
+        raise ValueError("Dataset must contain columns: v1 and v2")
 
+    # Keep and rename the required columns
+    df = df[["v1", "v2"]].copy()
     df.columns = ["label", "message"]
 
     # Convert labels: ham -> 0, spam -> 1
