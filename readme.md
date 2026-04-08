@@ -1,172 +1,72 @@
-    Here’s a **clean, professional README.md** you can directly use for your project. No fluff—this is how real projects present themselves.
+# Email Spam Classifier using TF-IDF
 
----
+A simple NLP project that classifies emails/messages as:
+- `0` -> Ham (not spam)
+- `1` -> Spam
 
-# 📧 Email Spam Classifier (Machine Learning)
+The model uses:
+- `TfidfVectorizer(stop_words="english", max_df=0.7)`
+- `LogisticRegression`
 
-A machine learning project that classifies emails as **spam or not spam** using a **Naive Bayes classifier** on a preprocessed dataset.
+## Project Structure
 
----
-
-## 🚀 Overview
-
-This project uses a dataset of emails represented as **word frequency features** (Bag-of-Words format) to train a classification model.
-
-The model predicts whether an email is:
-
-* `0` → Not Spam
-* `1` → Spam
-
----
-
-## 🧠 Model Used
-
-* **Multinomial Naive Bayes**
-* Suitable for text classification and frequency-based features
-
----
-
-## 📂 Project Structure
-
-```
+```text
 NLP/
-│
-├── spam_classifier.py   # Main script
-├── emails.csv           # Dataset
-├── venv/                # Virtual environment (optional)
+|-- TF-IDF.py
+|-- spam.csv
+|-- emails.csv
+|-- readme.md
+|-- .gitignore
 ```
 
----
+## Dataset Format
 
-## 📊 Features
+The script supports either of these column formats:
+- `v1` (label), `v2` (message)
+- `Category` (label), `Message` (message)
 
-* Data preprocessing (drop unnecessary columns)
-* Train-test split
-* Model training using Naive Bayes
-* Evaluation metrics:
+Labels are mapped as:
+- `ham` -> `0`
+- `spam` -> `1`
 
-  * Accuracy
-  * Precision
-  * Recall
-  * F1-score
-* Visualization:
+## Features Implemented
 
-  * Confusion Matrix
-  * Performance comparison chart
+- Dataset loading with error handling
+- Column validation and renaming to `label` and `message`
+- Label conversion to numeric values
+- Train/test split (`80/20`)
+- TF-IDF vectorization with English stopwords removed
+- Logistic Regression training
+- Evaluation:
+  - Accuracy score
+  - Classification report
+  - Confusion matrix
+- Confusion matrix plot (Seaborn if available, otherwise Matplotlib fallback)
+- Custom message prediction function
 
----
-
-## ⚙️ Installation
-
-### 1. Clone or download the project
+## Installation
 
 ```bash
-git clone <https://github.com/pradnyadokh/Document-Classification-Using-NLP-Technique.git>
-cd NLP
+pip install pandas scikit-learn matplotlib seaborn
 ```
 
----
+`seaborn` is optional because the script has a Matplotlib fallback.
 
-### 2. Create virtual environment (recommended)
+## Run
 
 ```bash
-python -m venv venv
+python TF-IDF.py
 ```
 
-Activate:
+## Example Output
 
-**Windows:**
+- Accuracy score in terminal
+- Classification report in terminal
+- Confusion matrix chart
+- Sample custom message prediction:
+  - `Spam` or `Ham`
 
-```bash
-venv\Scripts\activate
-```
+## Notes
 
----
-
-### 3. Install dependencies
-
-```bash
-pip install pandas scikit-learn matplotlib
-```
-
----
-
-## ▶️ How to Run
-
-```bash
-python spam_classifier.py
-```
-
----
-
-## 📈 Output
-
-### Terminal Output:
-
-* Accuracy score
-* Classification report (precision, recall, F1-score)
-
-### Visual Output:
-
-* Confusion Matrix (model performance)
-* Bar chart comparing:
-
-  * Precision
-  * Recall
-  * F1 Score
-
----
-
-## 📊 Example Results
-
-```
-Accuracy: ~95%
-
-Class 0 (Not Spam):
-Precision: 0.98
-Recall:    0.95
-
-Class 1 (Spam):
-Precision: 0.89
-Recall:    0.96
-```
-
----
-
-## ⚠️ Important Notes
-
-* The dataset is **already preprocessed** (Bag-of-Words format)
-* No text cleaning or TF-IDF is required
-* Do NOT apply NLP preprocessing again (it will break the model logic)
-
----
-
-## 🧠 Key Learnings
-
-* Difference between raw text vs processed features
-* Importance of dataset structure
-* Model evaluation beyond accuracy
-* Visualization of ML performance
-
----
-
-## 🚀 Future Improvements
-
-* Add Logistic Regression / SVM for comparison
-* Hyperparameter tuning
-* Save/load trained model
-* Build API using FastAPI
-* Deploy as a web app
-
----
-
-## 📌 Author
-
-Pradnya Dokh
-
----
-
-## 🏁 Final Thought
-
-This project demonstrates the **complete ML pipeline**:
-data → training → evaluation → visualization
+- Keep `spam.csv` in the same folder as `TF-IDF.py`.
+- If the dataset file is missing or columns are incorrect, the script prints a clear error message.

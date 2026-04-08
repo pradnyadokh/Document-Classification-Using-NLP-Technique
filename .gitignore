@@ -1,59 +1,36 @@
-# -----------------------------
-# Virtual Environment
-# -----------------------------
-venv/
-env/
-ENV/
-
-# -----------------------------
-# Python cache
-# -----------------------------
+# Python cache and compiled files
 __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
 
-# -----------------------------
-# Jupyter Notebook
-# -----------------------------
+# Virtual environments
+venv/
+.env/
+env/
+ENV/
+
+# Jupyter
 .ipynb_checkpoints/
 
-# -----------------------------
-# Logs
-# -----------------------------
-*.log
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+*.swo
 
-# -----------------------------
 # OS files
-# -----------------------------
 .DS_Store
 Thumbs.db
 
-# -----------------------------
-# VS Code
-# -----------------------------
-.vscode/
+# Logs and temp files
+*.log
+*.tmp
+*.temp
 
-# -----------------------------
-# Environment variables
-# -----------------------------
-.env
-
-# -----------------------------
-# Model / output files
-# -----------------------------
+# Model/artifact files
 *.pkl
 *.joblib
 
-# -----------------------------
-# Matplotlib / generated images
-# -----------------------------
-*.png
-*.jpg
-*.jpeg
-
-# -----------------------------
-# Temporary files
-# -----------------------------
-*.tmp
-*.temp
+# Common generated plots/images
+Figure_*.png
