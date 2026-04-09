@@ -158,6 +158,10 @@ Recall:    0.96
 ## 📌 Author
 
 Pradnya Dokh
+Kaustubh Naikwadi
+Aryan Singh
+Piyush Dwivedi
+
 
 ---
 
